@@ -57,7 +57,7 @@
     "release": "release-it"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18 <22"
   },
   "repository": {
     "type": "",

@@ -46,11 +46,13 @@ global.smartXMPP = false;
 global.exchangeCodes = [];
 const app = express();
 const PORT = process.env.PORT;
+const tokensPath = path.join(__dirname, "../tokens.json");
+if (!fs.existsSync(tokensPath)) {
+  fs.writeFileSync(tokensPath, JSON.stringify({ accessTokens: [], refreshTokens: [], clientTokens: [] }, null, 2));
+}
 let redisTokens;
 let tokens;
-tokens = destr(
-  fs.readFileSync(path.join(__dirname, "../tokens.json")).toString()
-);
+tokens = destr(fs.readFileSync(tokensPath).toString());
 for (let tokenType in tokens) {
   for (let tokenIndex in tokens[tokenType]) {
     const rawToken = tokens[tokenType][tokenIndex].token.replace("eg1~", "");
@@ -74,17 +76,17 @@ for (let tokenType in tokens) {
   }
 }
 fs.writeFileSync(
-  path.join(__dirname, "../tokens.json"),
+  tokensPath,
   JSON.stringify(tokens, null, 2) || ""
 );
 if (!tokens || !tokens.accessTokens) {
   console.log("No access tokens found, resetting tokens.json");
   await kv.set(
     "tokens",
-    fs.readFileSync(path.join(__dirname, "../tokens.json")).toString()
+    fs.readFileSync(tokensPath).toString()
   );
   tokens = destr(
-    fs.readFileSync(path.join(__dirname, "../tokens.json")).toString()
+    fs.readFileSync(tokensPath).toString()
   );
 }
 global.accessTokens = tokens.accessTokens;

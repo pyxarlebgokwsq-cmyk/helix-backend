@@ -1,0 +1,34 @@
+{
+    "_help": "Boutique rotative quotidienne. Tous les jours a resetHour (16h00), l'API pioche dailyCount items dans dailyPool et featuredCount dans featuredPool (melange deterministe -> meme boutique toute la journee, differente chaque jour). Ajoute ici les template IDs qui existent dans TON build (format: Type:ID, ex: AthenaCharacter:CID_xxx, AthenaPickaxe:Pickaxe_ID_xxx). Mets enabled:false pour revenir au catalogue statique catalog_config.json. dailyPrice/featuredPrice = prix en V-Bucks (0 = gratuit).",
+    "enabled": true,
+    "resetHour": 16,
+    "dayOffset": 0,
+    "dailyCount": 6,
+    "featuredCount": 3,
+    "dailyPrice": 500,
+    "featuredPrice": 1200,
+    "dailyPool": [
+        "AthenaDance:EID_JanuaryBop",
+        "AthenaDance:EID_SandwichBop",
+        "AthenaDance:EID_BillyBounce",
+        "AthenaPickaxe:Pickaxe_ID_179_StarWand",
+        "AthenaCharacter:CID_748_Athena_Commando_F_Hitman",
+        "AthenaGlider:Glider_ID_206_Donut",
+        "AthenaCharacter:CID_694_Athena_Commando_M_CatBurglar",
+        "AthenaCharacter:CID_703_Athena_Commando_M_Cyclone",
+        "AthenaPickaxe:Pickaxe_ID_376_FNCS",
+        "AthenaCharacter:CID_030_Athena_Commando_M_Halloween",
+        "AthenaCharacter:CID_029_Athena_Commando_F_Halloween",
+        "AthenaDance:EID_TakeTheL",
+        "AthenaDance:EID_Floss",
+        "AthenaDance:EID_Wiggle"
+    ],
+    "featuredPool": [
+        "AthenaCharacter:CID_694_Athena_Commando_M_CatBurglar",
+        "AthenaCharacter:CID_703_Athena_Commando_M_Cyclone",
+        "AthenaPickaxe:Pickaxe_ID_376_FNCS",
+        "AthenaCharacter:CID_748_Athena_Commando_F_Hitman",
+        "AthenaCharacter:CID_030_Athena_Commando_M_Halloween",
+        "AthenaCharacter:CID_029_Athena_Commando_F_Halloween"
+    ]
+}
